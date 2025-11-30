@@ -1,3 +1,3 @@
 #!/usr/bin/python3
 str = "Python is an, object-oriented programming language that combines remarkable power with very"
-print(str[39:67] + str[107:112] + str[:6])
+print(str[14:42] + str[82:87] + str[:6])
