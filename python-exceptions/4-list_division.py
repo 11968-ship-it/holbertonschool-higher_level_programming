@@ -1,15 +1,22 @@
 #!/usr/bin/python3
 def list_division(my_list_1, my_list_2, list_length):
-    """Divides elements from my_list_1 by my_list_2 element-wise safely.
-    Returns a list of length list_length with results or 0 on error.
-    Prints errors as specified."""
+    """
+    Divide elements of my_list_1 by elements of my_list_2 element-wise.
+
+    Returns a list of length list_length containing the division results.
+    If division fails, appends 0 instead and prints an error message:
+      - "out of range" for IndexError
+      - "division by 0" for ZeroDivisionError
+      - "wrong type" for non-integer/float values
+    """
     result = []
+
     for i in range(list_length):
         div = 0
         try:
             a = my_list_1[i]
             b = my_list_2[i]
-            if not (isinstance(a, (int, float)) and isinstance(b, (int, float))):
+            if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
                 raise TypeError
             div = a / b
         except IndexError:
@@ -23,4 +30,5 @@ def list_division(my_list_1, my_list_2, list_length):
             div = 0
         finally:
             result.append(div)
+
     return result
