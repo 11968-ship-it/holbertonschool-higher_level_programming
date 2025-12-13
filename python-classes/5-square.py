@@ -35,9 +35,5 @@ class Square:
         if self.size == 0:
             print()
         else:
-            for i in range(self.size):
-                if i < self.size - 1:
-                    print("#" * self.size)
-                else:
-                    print("#" * self.size, end="")
-            print()
+            for _ in range(self.size):
+                print("#" * self.size)
