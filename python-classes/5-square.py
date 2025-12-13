@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Define a Square class with private size, getter/setter, area, and my_print."""
+"""Define a Square class with size, area, and my_print."""
 
 
 class Square:
@@ -16,7 +16,7 @@ class Square:
 
     @size.setter
     def size(self, value):
-        """Set the size of the square with validation."""
+        """Set the size with validation."""
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
@@ -24,13 +24,13 @@ class Square:
         self.__size = value
 
     def area(self):
-        """Return the area of the square."""
+        """Return the current area of the square."""
         return self.size ** 2
 
     def my_print(self):
-        """Print the square using the # character."""
+        """Print the square using '#'."""
         if self.size == 0:
             print()
-            return
-        for _ in range(self.size):
-            print("#" * self.size)
+        else:
+            for i in range(self.size):
+                print("#" * self.size)
