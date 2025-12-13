@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Define a Square class with private size, getter/setter, area, and my_print methods."""
+"""Define a Square class with private size, getter/setter, area, and my_print."""
 
 
 class Square:
@@ -24,16 +24,13 @@ class Square:
         self.__size = value
 
     def area(self):
-        """Return the current area of the square."""
-        return self.__size ** 2
+        """Return the area of the square."""
+        return self.size ** 2
 
     def my_print(self):
-        """Print the square using the character #.
-
-        Prints an empty line if size is 0.
-        """
+        """Print the square using the # character."""
         if self.size == 0:
             print()
-        else:
-            for _ in range(self.size):
-                print("#" * self.size)
+            return
+        for _ in range(self.size):
+            print("#" * self.size)
