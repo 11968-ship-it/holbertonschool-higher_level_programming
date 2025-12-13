@@ -1,1 +1,46 @@
+>>> from 5-text_indentation import text_indentation
+
+>>> text_indentation("Hello. How are you? I'm fine: thanks.")
+Hello.
+
+How are you?
+
+I'm fine:
+
+thanks.
+
+>>> text_indentation("   Leading and trailing spaces.  Another sentence? Yes:  ")
+Leading and trailing spaces.
+
+Another sentence?
+
+Yes:
+
+>>> text_indentation("No separators here")
+No separators here
+
+>>> text_indentation("")
+# (prints nothing)
+
+>>> text_indentation("Multiple...dots???colons::")
+Multiple.
+
+.
+
+.
+
+?
+
+?
+
+?
+
+colons:
+
+:
+
+>>> text_indentation(123)
+Traceback (most recent call last):
+  ...
+TypeError: text must be a string
 
