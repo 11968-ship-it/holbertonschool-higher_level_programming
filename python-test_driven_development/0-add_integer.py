@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """
+ 
 This module defines a function that adds two integers.
 It ensures the arguments are integers or floats, casting floats to integers.
 All operations return an integer value.
-
 """
+
 def add_integer(a, b=98):
     """
     Adds two integers and returns the result.
