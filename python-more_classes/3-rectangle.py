@@ -46,15 +46,4 @@ class Rectangle:
         """Return the perimeter of the rectangle"""
         if self.__width == 0 or self.__height == 0:
             return 0
-        return 2 * (self.__width + self.__height)
-
-    def __str__(self):
-        """Return the rectangle as a string with '#' characters"""
-        if self.__width == 0 or self.__height == 0:
-            return ""
-        lines = ["#" * self.__width for _ in range(self.__height)]
-        return "\n".join(lines)
-
-    def __repr__(self):
-        """Return a string representation of the rectangle"""
-        return f"<{self.__class__.__name__} object at {hex(id(self))}>"
+        return 2 * (*
