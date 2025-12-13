@@ -1,10 +1,25 @@
-#!/usr/bin/python3
-def say_my_name(first_name, last_name=""):
-    """Prints My name is <first_name> <last_name>."""
-    if not isinstance(first_name, str):
-        raise TypeError("first_name must be a string")
-    if not isinstance(last_name, str):
-        raise TypeError("last_name must be a string")
-    
-    # Correct print without extra space
-    print(f"My name is {first_name}{' ' + last_name if last_name else ''}")
+def text_indentation(text):
+    """
+    Prints a text with 2 new lines after '.', '?', and ':'.
+
+    Args:
+        text (str): The text to print.
+
+    Raises:
+        TypeError: If text is not a string.
+    """
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+
+    separators = ['.', '?', ':']
+    start = 0
+
+    for i, char in enumerate(text):
+        if char in separators:
+            print(text[start:i + 1].strip())
+            print()
+            start = i + 1
+
+    remainder = text[start:].strip()
+    if remainder:
+        print(remainder)
