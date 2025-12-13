@@ -5,21 +5,14 @@ It ensures the arguments are integers or floats, casting floats to integers.
 All operations return an integer value.
 
 """
-
 def add_integer(a, b=98):
     """
     Adds two integers and returns the result.
 
     a and b must be integers or floats; floats are casted to integers.
     Raises a TypeError if a or b are not integers or floats.
-
-    Args:
-        a (int or float): The first number to add.
-        b (int or float, optional): The second number to add. Defaults to 98.
-
-    Returns:
-        int: The sum of a and b.
     """
+
     if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")
     if not isinstance(b, (int, float)):
