@@ -7,10 +7,10 @@ This module contains a function that prints a square with the character #.
 
 def print_square(size):
     """Prints a square of # characters with the given size."""
-    # Check type
+    # Type check
     if not isinstance(size, int):
         raise TypeError("size must be an integer")
-    # Check value
+    # Value check
     if size < 0:
         raise ValueError("size must be >= 0")
 
