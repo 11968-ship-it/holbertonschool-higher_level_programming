@@ -1,4 +1,11 @@
 #!/usr/bin/python3
+"""
+This module provides a function matrix_divided(matrix, div)
+that divides all elements of a matrix by a given number.
+It validates the matrix and divisor, and returns a new matrix
+with values rounded to 2 decimal places.
+"""
+
 def matrix_divided(matrix, div):
     """
     Divides all elements of a matrix by div.
@@ -31,7 +38,6 @@ def matrix_divided(matrix, div):
     
     if div == 0:
         raise ZeroDivisionError("division by zero")
-
-    new_matrix = [[round(elem / div, 2) for elem in row] for row in matrix]
     
+    new_matrix = [[round(elem / div, 2) for elem in row] for row in matrix]
     return new_matrix
