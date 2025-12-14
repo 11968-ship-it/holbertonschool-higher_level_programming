@@ -26,7 +26,6 @@ and validates input types.
 #
 
 >>> print_square(0)
-# (prints nothing)
 
 # Invalid types
 >>> print_square("3")
