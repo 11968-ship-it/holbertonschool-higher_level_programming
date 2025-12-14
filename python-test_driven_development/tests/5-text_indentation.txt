@@ -6,36 +6,39 @@ after each '.', '?', or ':' character and trims spaces.
 # Normal text with separators
 >>> text_indentation("Hello world. How are you? Fine: thanks.")
 Hello world.
-
+<BLANKLINE>
 How are you?
-
+<BLANKLINE>
 Fine:
-
+<BLANKLINE>
 thanks.
+<BLANKLINE>
 
 # Text with multiple separators in a row
 >>> text_indentation("Wait... What? Really?? Yes: Ok:")
 Wait.
-
+<BLANKLINE>
 .
-
+<BLANKLINE>
 .
-
+<BLANKLINE>
 What?
-
+<BLANKLINE>
 Really?
-
+<BLANKLINE>
 ?
-
+<BLANKLINE>
 Yes:
-
+<BLANKLINE>
 Ok:
+<BLANKLINE>
 
 # Text with leading/trailing spaces
 >>> text_indentation("   Leading and trailing spaces.   More text?  ")
 Leading and trailing spaces.
-
+<BLANKLINE>
 More text?
+<BLANKLINE>
 
 # Text with no separators
 >>> text_indentation("No separators here")
@@ -44,10 +47,11 @@ No separators here
 # Text with only separators
 >>> text_indentation(".?:")
 .
-
+<BLANKLINE>
 ?
-
+<BLANKLINE>
 :
+<BLANKLINE>
 
 # Invalid input: non-string
 >>> text_indentation(123)
@@ -60,4 +64,3 @@ TypeError: text must be a string
 
 # Empty string
 >>> text_indentation("")
-# (prints nothing)
