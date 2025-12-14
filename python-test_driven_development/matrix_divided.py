@@ -29,24 +29,18 @@ def matrix_divided(matrix, div):
 
     # Check if matrix is a list of lists of numbers
     if not isinstance(matrix, list) or not matrix or any(
-        not isinstance(row, list) or not row for row in matrix
+        not isinstance(row, list) for row in matrix
     ):
         raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
 
-    # Check that all elements are integers/floats
-    for row in matrix:
-        if any(not isinstance(ele, (int, float)) for ele in row):
-            raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
-
-    # Check that all rows are of the same size
+    # Check if all rows are of the same size
     row_length = len(matrix[0])
     for row in matrix:
         if len(row) != row_length:
             raise TypeError("Each row of the matrix must have the same size")
+        for ele in row:
+            if not isinstance(ele, (int, float)):
+                raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
 
-    # Divide all elements by div and round to 2 decimal places
-    new_matrix = [
-        [round(ele / div, 2) for ele in row] for row in matrix
-    ]
-
-    return new_matrix
+    # Divide all elements and round to 2 decimals
+    return [[round(ele / div, 2) for ele in row] for row in matrix]
