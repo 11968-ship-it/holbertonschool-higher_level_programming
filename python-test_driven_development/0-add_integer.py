@@ -7,7 +7,6 @@ Floats are cast to integers before addition.
 """
 
 
-
 def add_integer(a, b=98):
     """
     Adds two integers or floats and returns the result as an integer.
