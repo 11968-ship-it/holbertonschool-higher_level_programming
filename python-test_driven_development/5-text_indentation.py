@@ -27,14 +27,12 @@ def text_indentation(text):
 
     for i, char in enumerate(text):
         if char in separators:
-            # Extract the segment and strip leading/trailing spaces
             segment = text[start:i + 1].strip()
             if segment:
                 print(segment)
                 print()
             start = i + 1
 
-    # Print any remaining text after the last separator
     remaining = text[start:].strip()
     if remaining:
-        print(remaining)
+        print(remaining, end='')
