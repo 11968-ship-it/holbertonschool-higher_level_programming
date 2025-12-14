@@ -1,46 +1,63 @@
->>> from 5-text_indentation import text_indentation
+The text_indentation function prints a text with two new lines
+after each '.', '?', or ':' character and trims spaces.
 
->>> text_indentation("Hello. How are you? I'm fine: thanks.")
-Hello.
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# Normal text with separators
+>>> text_indentation("Hello world. How are you? Fine: thanks.")
+Hello world.
 
 How are you?
 
-I'm fine:
+Fine:
 
 thanks.
 
->>> text_indentation("   Leading and trailing spaces.  Another sentence? Yes:  ")
-Leading and trailing spaces.
+# Text with multiple separators in a row
+>>> text_indentation("Wait... What? Really?? Yes: Ok:")
+Wait.
 
-Another sentence?
+.
+
+.
+
+What?
+
+Really?
+
+?
 
 Yes:
 
+Ok:
+
+# Text with leading/trailing spaces
+>>> text_indentation("   Leading and trailing spaces.   More text?  ")
+Leading and trailing spaces.
+
+More text?
+
+# Text with no separators
 >>> text_indentation("No separators here")
 No separators here
 
->>> text_indentation("")
-# (prints nothing)
-
->>> text_indentation("Multiple...dots???colons::")
-Multiple.
-
-.
-
+# Text with only separators
+>>> text_indentation(".?:")
 .
 
 ?
-
-?
-
-?
-
-colons:
 
 :
 
+# Invalid input: non-string
 >>> text_indentation(123)
 Traceback (most recent call last):
-  ...
 TypeError: text must be a string
 
+>>> text_indentation([1, 2, 3])
+Traceback (most recent call last):
+TypeError: text must be a string
+
+# Empty string
+>>> text_indentation("")
+# (prints nothing)
