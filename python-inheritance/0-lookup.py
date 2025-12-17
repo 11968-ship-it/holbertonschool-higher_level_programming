@@ -10,6 +10,6 @@ def lookup(obj):
         obj (any): The object to inspect
 
     Returns:
-        list: A list of attribute and method names of the object    
+        list: A list of attribute and method names of the object
     """
     return dir(obj)
