@@ -3,10 +3,11 @@ BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 bg = BaseGeometry()
 
+# Valid integer values
 bg.integer_validator("my_int", 12)
 bg.integer_validator("width", 89)
 
-# Test invalid type
+# Invalid type: string
 try:
     bg.integer_validator("name", "John")
 except Exception as e:
@@ -14,7 +15,7 @@ except Exception as e:
 # Expected Output:
 # [TypeError] name must be an integer
 
-# Test zero value
+# Zero value
 try:
     bg.integer_validator("age", 0)
 except Exception as e:
@@ -22,7 +23,7 @@ except Exception as e:
 # Expected Output:
 # [ValueError] age must be greater than 0
 
-# Test negative value
+# Negative value
 try:
     bg.integer_validator("distance", -4)
 except Exception as e:
@@ -30,7 +31,16 @@ except Exception as e:
 # Expected Output:
 # [ValueError] distance must be greater than 0
 
-# Test area method raises Exception
+# Other invalid types
+invalid_values = [3.5, (4,), [5], True, {3, 4}, None]
+
+for val in invalid_values:
+    try:
+        bg.integer_validator("age", val)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+# area() raises Exception
 try:
     bg.area()
 except Exception as e:
