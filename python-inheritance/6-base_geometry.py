@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Module that defines a BaseGeometry class with an area() method that is not implemented.
+Module that defines a BaseGeometry class with an area() method
+that is not implemented.
 """
 
 
