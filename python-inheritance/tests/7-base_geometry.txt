@@ -1,5 +1,5 @@
 BaseGeometry class tests
->>> from 7-base_geometry import BaseGeometry
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
 
 # Test integer_validator with valid integers
