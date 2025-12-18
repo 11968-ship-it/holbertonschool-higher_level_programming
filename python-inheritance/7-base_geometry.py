@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-This module defines a base geometry class with validation methods.
+This module defines a base geometry class with validation
+methods.
 """
 
 
