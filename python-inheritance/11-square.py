@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """
-This module defines a Square class that inherits
-from Rectangle. The class implements a square with
-size validation.
+This module defines a Square class.
+The class inherits Rectangle and implements a square with size validation.
 """
 
 
