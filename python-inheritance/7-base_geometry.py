@@ -1,8 +1,16 @@
 #!/usr/bin/python3
-"""BaseGeometry module"""
+"""BaseGeometry module.
+
+Defines a BaseGeometry class with an unimplemented area method
+and an integer_validator method for input validation.
+"""
+
 
 class BaseGeometry:
-    """BaseGeometry class"""
+    """BaseGeometry class
+
+    Provides a blueprint for geometric shapes and input validation.
+    """
 
     def area(self):
         """Raises an Exception indicating area() is not implemented."""
@@ -14,3 +22,4 @@ class BaseGeometry:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
+            
