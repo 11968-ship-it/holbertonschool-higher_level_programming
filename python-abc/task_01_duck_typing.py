@@ -37,5 +37,6 @@ class Rectangle(Shape):
 
 
 def shape_info(shape):
+    # Pure duck typing: no type checks
     print(f"Area: {shape.area()}")
     print(f"Perimeter: {shape.perimeter()}")
