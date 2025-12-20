@@ -1,79 +1,48 @@
-#!/usr/bin/python3
 """
-Local test script for BaseGeometry
-Simulates Holberton checker output
+Test BaseGeometry class and integer_validator method.
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
+>>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("width", 89)
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+...
+ValueError: age must be greater than 0
+>>> bg.integer_validator("distance", -4)
+Traceback (most recent call last):
+...
+ValueError: distance must be greater than 0
+>>> bg.integer_validator("age", "4")
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+>>> bg.integer_validator("age", (4,))
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+>>> bg.integer_validator("age", [3])
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+>>> bg.integer_validator("age", True)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+>>> bg.integer_validator("age", {3, 4})
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+>>> bg.integer_validator("age", None)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
 """
-
-from __future__ import print_function
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
-
-def main():
-    bg = BaseGeometry()
-    output_lines = []
-
-    # Test area()
-    try:
-        bg.area()
-    except Exception as e:
-        output_lines.append("[{}] {}".format(e.__class__.__name__, e))
-
-    # Test integer_validator with valid input
-    try:
-        bg.integer_validator("age", 1)
-    except Exception as e:
-        output_lines.append("[{}] {}".format(e.__class__.__name__, e))
-
-    # Test integer_validator with zero
-    try:
-        bg.integer_validator("age", 0)
-    except Exception as e:
-        output_lines.append("[{}] {}".format(e.__class__.__name__, e))
-
-    # Test integer_validator with negative
-    try:
-        bg.integer_validator("age", -4)
-    except Exception as e:
-        output_lines.append("[{}] {}".format(e.__class__.__name__, e))
-
-    # Test integer_validator with string
-    try:
-        bg.integer_validator("age", "4")
-    except Exception as e:
-        output_lines.append("[{}] {}".format(e.__class__.__name__, e))
-
-    # Test integer_validator with tuple
-    try:
-        bg.integer_validator("age", (4,))
-    except Exception as e:
-        output_lines.append("[{}] {}".format(e.__class__.__name__, e))
-
-    # Test integer_validator with list
-    try:
-        bg.integer_validator("age", [3])
-    except Exception as e:
-        output_lines.append("[{}] {}".format(e.__class__.__name__, e))
-
-    # Test integer_validator with bool
-    try:
-        bg.integer_validator("age", True)
-    except Exception as e:
-        output_lines.append("[{}] {}".format(e.__class__.__name__, e))
-
-    # Test integer_validator with set
-    try:
-        bg.integer_validator("age", {3, 4})
-    except Exception as e:
-        output_lines.append("[{}] {}".format(e.__class__.__name__, e))
-
-    # Test integer_validator with None
-    try:
-        bg.integer_validator("age", None)
-    except Exception as e:
-        output_lines.append("[{}] {}".format(e.__class__.__name__, e))
-
-    # Print results
-    for line in output_lines:
-        print(line)
-
-if __name__ == "__main__":
-    main()
