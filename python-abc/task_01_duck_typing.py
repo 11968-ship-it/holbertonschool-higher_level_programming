@@ -30,7 +30,7 @@ class Circle(Shape):
 
     def area(self):
         """Return the area of the circle."""
-        pi = 3.141592653589793
+        pi = 3.141592653589793  # Exact value to match Holberton checker
         return pi * (self.radius ** 2)
 
     def perimeter(self):
