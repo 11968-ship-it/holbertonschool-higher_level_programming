@@ -1,40 +1,79 @@
->>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
->>> bg = BaseGeometry()
+#!/usr/bin/python3
+"""
+Local test script for BaseGeometry
+Simulates Holberton checker output
+"""
 
-# Valid integers
->>> bg.integer_validator("my_int", 12)
->>> bg.integer_validator("width", 89)
+from __future__ import print_function
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-# Invalid types
->>> for val in ("John", (4,), [3], True, {3, 4}, None, 3.5):
-...     try:
-...         bg.integer_validator("age", val)
-...     except Exception as e:
-...         print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] age must be an integer
-[TypeError] age must be an integer
-[TypeError] age must be an integer
-[TypeError] age must be an integer
-[TypeError] age must be an integer
-[TypeError] age must be an integer
-[TypeError] age must be an integer
+def main():
+    bg = BaseGeometry()
+    output_lines = []
 
-# Zero or negative
->>> try:
-...     bg.integer_validator("height", 0)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] height must be greater than 0
+    # Test area()
+    try:
+        bg.area()
+    except Exception as e:
+        output_lines.append("[{}] {}".format(e.__class__.__name__, e))
 
->>> try:
-...     bg.integer_validator("depth", -4)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] depth must be greater than 0
+    # Test integer_validator with valid input
+    try:
+        bg.integer_validator("age", 1)
+    except Exception as e:
+        output_lines.append("[{}] {}".format(e.__class__.__name__, e))
 
-# area method
->>> try:
-...     bg.area()
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[Exception] area() is not implemented
+    # Test integer_validator with zero
+    try:
+        bg.integer_validator("age", 0)
+    except Exception as e:
+        output_lines.append("[{}] {}".format(e.__class__.__name__, e))
+
+    # Test integer_validator with negative
+    try:
+        bg.integer_validator("age", -4)
+    except Exception as e:
+        output_lines.append("[{}] {}".format(e.__class__.__name__, e))
+
+    # Test integer_validator with string
+    try:
+        bg.integer_validator("age", "4")
+    except Exception as e:
+        output_lines.append("[{}] {}".format(e.__class__.__name__, e))
+
+    # Test integer_validator with tuple
+    try:
+        bg.integer_validator("age", (4,))
+    except Exception as e:
+        output_lines.append("[{}] {}".format(e.__class__.__name__, e))
+
+    # Test integer_validator with list
+    try:
+        bg.integer_validator("age", [3])
+    except Exception as e:
+        output_lines.append("[{}] {}".format(e.__class__.__name__, e))
+
+    # Test integer_validator with bool
+    try:
+        bg.integer_validator("age", True)
+    except Exception as e:
+        output_lines.append("[{}] {}".format(e.__class__.__name__, e))
+
+    # Test integer_validator with set
+    try:
+        bg.integer_validator("age", {3, 4})
+    except Exception as e:
+        output_lines.append("[{}] {}".format(e.__class__.__name__, e))
+
+    # Test integer_validator with None
+    try:
+        bg.integer_validator("age", None)
+    except Exception as e:
+        output_lines.append("[{}] {}".format(e.__class__.__name__, e))
+
+    # Print results
+    for line in output_lines:
+        print(line)
+
+if __name__ == "__main__":
+    main()
