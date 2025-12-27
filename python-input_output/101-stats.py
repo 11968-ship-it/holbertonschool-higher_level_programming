@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """
 Reads stdin line by line and computes metrics:
+
 - Total file size
 - Number of lines by status code
-Prints statistics every 10 lines and on keyboard
-interruption (CTRL+C)
+
+Prints statistics every 10 lines and on keyboard interruption (CTRL+C)
 """
 
 import sys
@@ -46,6 +47,5 @@ try:
             print_stats()
 except KeyboardInterrupt:
     pass
-
 finally:
     print_stats()
