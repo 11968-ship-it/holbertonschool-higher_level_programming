@@ -9,6 +9,14 @@ app = Flask(__name__)
 app.config["JWT_SECRET_KEY"] = "your-secret-key"
 jwt = JWTManager(app)
 
+@jwt.unauthorized_loader
+def handle_missing_token(err):
+    return jsonify({"error": "Missing or invalid token"}), 401
+
+@jwt.invalid_token_loader
+def handle_invalid_token(err):
+    return jsonify({"error": "Invalid token"}), 401
+
 auth = HTTPBasicAuth()
 
 users = {
