@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Lists all states with a name starting with N (case-insensitive) from the database hbtn_0e_0_usa
+Lists all states with a name starting with N (case-insensitive)
+from the database hbtn_0e_0_usa
 """
 
 import sys
@@ -26,7 +27,9 @@ if __name__ == "__main__":
 
     # Execute query with case-insensitive filter
     cursor.execute(
-        "SELECT * FROM states WHERE name COLLATE utf8mb4_general_ci LIKE 'N%' ORDER BY id ASC"
+        "SELECT * FROM states "
+        "WHERE name COLLATE utf8mb4_general_ci LIKE 'N%' "
+        "ORDER BY id ASC"
     )
 
     # Fetch and print results
