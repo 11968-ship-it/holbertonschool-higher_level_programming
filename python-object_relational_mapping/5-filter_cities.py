@@ -1,20 +1,12 @@
 #!/usr/bin/python3
 """
-This script lists all cities of a given state from the database
-hbtn_0e_4_usa.
-Usage: ./5-filter_cities.py <mysql_username> <mysql_password>
-<database_name> <state_name>
+Lists all cities of a given state from the database hbtn_0e_4_usa.
 """
 
 import sys
 import MySQLdb
 
 if __name__ == "__main__":
-    if len(sys.argv) != 5:
-        print("Usage: {} <mysql_username> <mysql_password> "
-              "<database_name> <state_name>".format(sys.argv[0]))
-        sys.exit(1)
-
     user = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
@@ -29,19 +21,19 @@ if __name__ == "__main__":
     )
     cursor = db.cursor()
 
-    query = """
+    cursor.execute(
+        """
         SELECT cities.name
         FROM cities
-        JOIN states ON cities.state_id = states.id
+        INNER JOIN states ON cities.state_id = states.id
         WHERE states.name = %s
         ORDER BY cities.id ASC
-    """
+        """,
+        (state_name,)
+    )
 
-    cursor.execute(query, (state_name,))
-    results = cursor.fetchall()
-
-    cities = [row[0] for row in results]
-    print(", ".join(cities))
+    rows = cursor.fetchall()
+    print(", ".join(city[0] for city in rows))
 
     cursor.close()
     db.close()
