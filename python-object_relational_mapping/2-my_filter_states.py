@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Lists all states from the database hbtn_0e_0_usa where name matches
-the argument.
+the argument (case-sensitive).
 """
 
 import sys
@@ -25,8 +25,8 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    # SQL query using format() split into two lines
-    query = ("SELECT * FROM states WHERE name = '{}' "
+    # Case-sensitive SQL query
+    query = ("SELECT * FROM states WHERE BINARY name = '{}' "
              "ORDER BY id ASC").format(state_name)
     cursor.execute(query)
 
