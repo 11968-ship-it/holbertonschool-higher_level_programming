@@ -1,19 +1,19 @@
 #!/usr/bin/python3
 """
-Displays all values in the states table where name matches the argument.
+Lists all states from the database hbtn_0e_0_usa where name matches
+the argument (safe from SQL injection)
 """
 
 import sys
 import MySQLdb
 
+
 if __name__ == "__main__":
-    # Get arguments
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
     state_name = sys.argv[4]
 
-    # Connect to MySQL
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -24,15 +24,12 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    # Case-sensitive exact match using BINARY
-    query = "SELECT * FROM states WHERE BINARY name = '{}' ORDER BY id ASC".format(state_name)
-    cursor.execute(query)
+    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+    cursor.execute(query, (state_name,))
 
-    # Fetch and print results
     rows = cursor.fetchall()
     for row in rows:
         print(row)
 
-    # Close connection
     cursor.close()
     db.close()
