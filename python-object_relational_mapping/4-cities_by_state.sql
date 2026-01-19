@@ -6,8 +6,7 @@ CREATE TABLE IF NOT EXISTS states (
     name VARCHAR(256) NOT NULL,
     PRIMARY KEY (id)
 );
-INSERT INTO states (name) VALUES ("California"), ("Arizona"), ("Texas"),
-  ("New York"), ("Nevada");
+INSERT INTO states (name) VALUES ("California"), ("Arizona"), ("Texas"), ("New York"), ("Nevada");
 
 CREATE TABLE IF NOT EXISTS cities ( 
     id INT NOT NULL AUTO_INCREMENT, 
