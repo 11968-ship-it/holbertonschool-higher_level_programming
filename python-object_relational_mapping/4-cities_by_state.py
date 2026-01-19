@@ -1,18 +1,21 @@
 #!/usr/bin/python3
 """
-Lists all cities from the database hbtn_0e_4_usa
+Lists all cities from the database hbtn_0e_4_usa along with their states.
+Results are sorted by cities.id in ascending order.
 """
 
 import sys
 import MySQLdb
 
-if __name__ == "__main__":
-    # Get arguments
+
+def main():
+    """
+    Connects to a MySQL database and prints all cities with their state names.
+    """
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
 
-    # Connect to MySQL
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -23,17 +26,21 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    # Execute a single query to get city id, city name, state name
-    query = ("SELECT cities.id, cities.name, states.name "
-             "FROM cities "
-             "JOIN states ON cities.state_id = states.id "
-             "ORDER BY cities.id ASC")
+    query = """
+        SELECT cities.id, cities.name, states.name
+        FROM cities
+        JOIN states ON cities.state_id = states.id
+        ORDER BY cities.id ASC
+    """
+
     cursor.execute(query)
 
-    # Fetch and print results
     for row in cursor.fetchall():
         print(row)
 
-    # Close connection
     cursor.close()
     db.close()
+
+
+if __name__ == "__main__":
+    main()
