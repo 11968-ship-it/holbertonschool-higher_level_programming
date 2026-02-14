@@ -1,7 +1,5 @@
 # Understanding Python Objects: IDs, Mutability, and Function Arguments
 
-![Python Memory and Objects Illustration](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/512px-Python-logo-notext.svg.png)  
-*Image: Understanding Python objects and memory behavior is key to writing efficient, bug-free code.*
 
 ## Introduction
 
